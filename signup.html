@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Republic Central Bank - Sign Up</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #222;
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #333;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      }
+      h1 {
+        text-align: center;
+        color: #fff;
+      }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        color: #ccc;
+      }
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #555;
+        border-radius: 4px;
+        box-sizing: border-box;
+        background-color: #444;
+        color: #fff;
+      }
+      button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+      }
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>REPUBLIC CENTRAL BANK - SIGN UP</h1>
+      <form id="signupForm" enctype="multipart/form-data">
+        <label for="passport">Upload a Valid Passport:</label>
+        <input type="file" id="passport" name="passport" />
+        <label for="first_name">First Name:</label>
+        <input type="text" id="first_name" name="first_name" required />
+        <label for="last_name">Last Name:</label>
+        <input type="text" id="last_name" name="last_name" required />
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" />
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+        <label for="dob">Date of Birth (mm/dd/yyyy):</label>
+        <input type="text" id="dob" name="dob" pattern="\d{2}/\d{2}/\d{4}" />
+        <label for="phone">Phone Number:</label>
+        <input type="tel" id="phone" name="phone" />
+        <label for="country">Country:</label>
+        <select id="country" name="country"></select>
+        <label for="sex">Sex:</label>
+        <select id="sex" name="sex">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+        <label for="currency">Currency:</label>
+        <select id="currency" name="currency"></select>
+        <label for="address">Address:</label>
+        <textarea id="address" name="address"></textarea>
+        <label for="pin">PIN:</label>
+        <input type="password" id="pin" name="pin" />
+        <label for="confirm_pin">Confirm PIN:</label>
+        <input type="password" id="confirm_pin" name="confirm_pin" />
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required />
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" />
+        <input type="checkbox" id="terms" name="terms" />
+        <label for="terms">I accept the terms and conditions</label>
+        <button type="submit">Sign Up</button>
+      </form>
+    </div>
+
+    <script type="module" src="/js/signup.js"></script>
+    <script>
+      // Function to populate countries dropdown
+      function populateCountries() {
+        const countries = [
+          "Afghanistan",
+          "Albania",
+          "Algeria" /* Add all countries here */,
+        ];
+        const countryDropdown = document.getElementById("country");
+        countries.forEach((country) => {
+          const option = document.createElement("option");
+          option.text = country;
+          option.value = country;
+          countryDropdown.appendChild(option);
+        });
+      }
+
+      // Function to populate currencies dropdown
+      function populateCurrencies() {
+        const currencies = [
+          "USD - US Dollar",
+          "EUR - Euro",
+          "GBP - British Pound" /* Add all currencies here */,
+        ];
+        const currencyDropdown = document.getElementById("currency");
+        currencies.forEach((currency) => {
+          const option = document.createElement("option");
+          option.text = currency;
+          option.value = currency.split(" - ")[0];
+          currencyDropdown.appendChild(option);
+        });
+      }
+
+      // Call the functions to populate dropdowns when the page loads
+      window.onload = function () {
+        populateCountries();
+        populateCurrencies();
+      };
+
+      // Form submission
+      document
+        .getElementById("signupForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent default form submission
+          // Handle form submission here (e.g., AJAX request or redirect)
+          console.log("Form submitted!");
+        });
+    </script>
+  </body>
+</html>
