@@ -39,14 +39,14 @@ loginForm.addEventListener("submit", (e) => {
       email: email,
     };
     emailjs
-      .send("service_yh5kngj", "template_je17ip4", params)
+      .send("service_yh5kngj", "template_u18ot1b", params)
       .then(console.log("successful"))
-      .catch((error) => console.log(error.message));
+      .catch((error) => console.log(error));
     console.log("email function ran");
   }
   signInWithEmailAndPassword(auth, email, password)
-    .then(async () => {
-      await sendMail();
+    .then(() => {
+      // await sendMail();
       Swal.fire({
         position: "top",
         icon: "success",
@@ -55,7 +55,7 @@ loginForm.addEventListener("submit", (e) => {
         timer: 1500,
       });
       setTimeout(function () {
-        window.location = "/otp.html";
+        window.location = "/dashboard.html";
       }, 1500);
       loginForm.reset();
     })
