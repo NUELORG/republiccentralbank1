@@ -39,7 +39,7 @@ loginForm.addEventListener("submit", (e) => {
       email: email,
     };
     emailjs
-      .send("service_izeeins", "template_ejsb7we", params)
+      .send("service_yh5kngj", "template_je17ip4", params)
       .then(console.log("successful"))
       .catch((error) => console.log(error.message));
     console.log("email function ran");
