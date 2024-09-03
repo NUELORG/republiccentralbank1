@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Code</title>
+    <link rel="stylesheet" href="style1.css" />
+    <script type="module" src="/js/otp.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+      input {
+        text-align: center;
+        width: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <a style="text-decoration: none" href="index.html">
+        <h1 style="color: white; font-size: 40px">Republic Bank</h1>
+      </a>
+    </div>
+    <div class="wrapper">
+      <form action="#" id="loginForm">
+        <div style="display: flex; justify-content: center">
+          <h2 style="color: black">Login</h2>
+        </div>
+        <hr style="margin-bottom: 20px" />
+        <h5 style="color: black">Enter The Login Code Sent To Your Email</h5>
+        <div class="input-field">
+          <input id="code" type="text" required maxlength="4" />
+        </div>
+
+        <button type="submit">Log In</button>
+      </form>
+    </div>
+    <script>
+      window.embeddedChatbotConfig = {
+        chatbotId: "RFRWWG3T9M9Uph7c0syW5",
+        domain: "www.chatbase.co",
+      };
+    </script>
+    <script
+      src="https://www.chatbase.co/embed.min.js"
+      chatbotId="RFRWWG3T9M9Uph7c0syW5"
+      domain="www.chatbase.co"
+      defer
+    ></script>
+  </body>
+</html>

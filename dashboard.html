@@ -1,120 +1,598 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Dashboard</title>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-    <link href="css/styles.css" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-</head>
-<body class="sb-nav-fixed">
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" style="padding: 20px;">
-    <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="index.html" style="font-size: 24px;">Republic Bank</a>
-    <!-- Sidebar Toggle-->
-    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
-        <div class="input-group">
-            <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" style="border-radius: 20px;" />
-            <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
-        </div>
-    </form>
-    <!-- Navbar-->
-    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-        <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#!">Settings</a></li>
-                <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li><a class="dropdown-item" id="logout" href="#!">Logout</a></li>
+    <!-- External Stylesheets -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome -->
+    <script
+      src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script type="module" src="/js/dashboard.js"></script>
+    <!-- Bootstrap Bundle -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <!-- Internal Styles -->
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f8f9fa;
+      }
+
+      .navbar-brand {
+        font-size: 24px;
+        padding: 20px;
+      }
+
+      .sb-topnav {
+        padding: 20px;
+      }
+      #navBarForm {
+        height: 40px;
+      }
+      .form-control {
+        border-radius: 0px;
+        height: 40px;
+      }
+      #btnNavbarSearch {
+        height: 40px;
+      }
+
+      .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        color: #ffffff;
+      }
+
+      .btn-primary:hover {
+        background-color: #0069d9;
+        border-color: #0062cc;
+        color: #ffffff;
+      }
+
+      .card {
+        margin-bottom: 20px;
+        border: none;
+      }
+
+      .card-body {
+        padding: 15px;
+      }
+
+      .card-header {
+        background-color: #ffffff;
+        border-bottom: 1px solid #dee2e6;
+      }
+
+      .breadcrumb-item {
+        font-size: 20px;
+      }
+
+      .breadcrumb-item.active {
+        font-weight: bold;
+      }
+
+      .btn {
+        padding: 10px 20px;
+        margin-bottom: 10px;
+      }
+
+      .footer {
+        background-color: #f8f9fa;
+        padding: 20px;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .footer a {
+        color: #212529;
+        text-decoration: none;
+      }
+
+      .small {
+        font-size: 12px;
+      }
+
+      .last-transactions {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-top: 100px;
+      }
+
+      .last-transactions h2 {
+        margin-bottom: 20px;
+      }
+
+      .transaction-item {
+        margin-bottom: 10px;
+      }
+
+      .transaction-item span {
+        font-weight: bold;
+        margin-right: 10px;
+      }
+
+      .transaction-item .text-muted {
+        font-size: 12px;
+      }
+
+      /* .image {
+        width: 100%;
+        height: 300px;
+      } */
+      #profile-card {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 300px;
+        /* position: relative;
+        bottom: 100px; */
+      }
+      /* CARD */
+      .flip-card {
+        background-color: transparent;
+        width: 500px;
+        margin-bottom: 20px;
+        perspective: 1000px;
+        /* Remove this if you don't want the 3D effect */
+      }
+
+      /* This container is needed to position the front and back side */
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+      }
+
+      /* Do an horizontal flip when you move the mouse over the flip box container */
+      /* .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+      } */
+
+      /* Position the front and back side */
+      .flip-card-front,
+      .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden; /* Safari */
+        backface-visibility: hidden;
+        border-radius: 20px;
+        box-shadow: 1px 1px 1px 1px rgb(82, 82, 82);
+      }
+
+      /* Style the front side (fallback if image is missing) */
+      .flip-card-front {
+        background-color: dodgerblue;
+        color: rgb(71, 71, 71);
+        background-color: rgb(232, 231, 231);
+      }
+      .flip-card-back {
+        background-color: dodgerblue;
+        color: white;
+        background-color: rgb(38, 38, 38);
+        transform: rotateY(180deg);
+      }
+      #number {
+        font-size: 24px;
+        letter-spacing: 10px;
+      }
+
+      /* Style the back side */
+
+      .header {
+        width: 100%;
+      }
+      .header img {
+        width: 100%;
+        max-height: 300px;
+        height: auto;
+      }
+      .balance {
+        font-size: 30px;
+        font-weight: bold;
+        color: black;
+      }
+      .dollar {
+        font-size: 20px;
+      }
+      #balance {
+        padding: 2px;
+      }
+      .available-balance {
+        font-size: 16px;
+        margin-bottom: 0;
+        color: rgb(97, 97, 97);
+      }
+      .small-dollar {
+        font-size: 14px;
+      }
+      .small-balance {
+        font-size: 18px;
+        color: black;
+      }
+      .current-balance {
+        font-size: 15px;
+        color: rgb(97, 97, 97);
+      }
+      #piggy-container {
+        position: relative;
+        bottom: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .piggy-bank {
+        max-width: 200px;
+        min-width: 200px;
+        height: 200px;
+      }
+      #flipCardBtn:hover {
+        background-color: rgb(68, 68, 68);
+      }
+      #flipCardBtn2:hover {
+        background-color: rgb(224, 211, 211);
+      }
+      #flipCardBtn,
+      #atmBtn {
+        background-color: #212529;
+        border: none;
+      }
+
+      #flipCardBtn2 {
+        background-color: white;
+        color: black;
+        border: none;
+      }
+      #full-name,
+      #user-name,#cardType {
+        text-transform: uppercase;
+      }
+      #user-name {
+        color: rgb(0, 0, 0);
+        font-family: sans-serif;
+        font-weight: 300;
+      }
+
+      #transferBtn {
+        background-color: green;
+        border: none;
+        margin-top: 20px;
+        color: white;
+        text-decoration: none;
+        display: block;
+      }
+      #depositBtn {
+        background-color: orange;
+        border: none;
+        margin-top: 20px;
+        color: white;
+        text-decoration: none;
+        display: block;
+      }
+
+      #transferBtn:hover {
+        background-color: rgb(20, 91, 20);
+      }
+      #depositBtn:hover {
+        background-color: rgb(198, 137, 24);
+      }
+
+      @media only screen and (max-width: 481px) {
+        .piggy-bank {
+          max-width: 140px;
+          min-width: 140px;
+          height: 140px;
+          width: auto;
+          height: auto;
+        }
+        .dollar {
+          font-size: 14px;
+        }
+        .balance {
+          font-size: 20px;
+        }
+        .small-balance {
+          font-size: 15px;
+        }
+        .available-balance {
+          font-size: 14px;
+        }
+        .current-balance {
+          font-size: 12px;
+        }
+        #flipCardBtn,
+        #atmBtn,
+        #flipCardBtn2 {
+          font-size: 12px;
+        }
+        #profile-card {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          height: 280px;
+          /* position: relative;
+        bottom: 100px; */
+        }
+        #number {
+          letter-spacing: normal;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="sb-nav-fixed">
+    <nav
+      class="sb-topnav navbar navbar-expand navbar-dark bg-dark"
+      style="padding: 10px"
+    >
+      <a class="navbar-brand ps-3" href="index.html">Republic Bank</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <form
+          class="d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"
+          id="navBarForm"
+        >
+          <div class="input-group">
+            <input
+              class="form-control"
+              type="text"
+              placeholder="Search for..."
+              aria-label="Search for..."
+              aria-describedby="btnNavbarSearch"
+            />
+            <button class="btn btn-primary" id="btnNavbarSearch" type="button">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
+        </form>
+        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              href="#"
+              id="navbarDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              ><i class="fas fa-user fa-fw"></i
+            ></a>
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="navbarDropdown"
+            >
+              <li><a class="dropdown-item" href="#!">Settings</a></li>
+              <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item" id="logout" href="index.html"
+                  >Logout</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" id="logout" href="admin.html">Admin</a>
+              </li>
             </ul>
-        </li>
-    </ul>
-</nav>
-
-<div id="layoutSidenav_content">
-    <main>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <!-- <div class="header">
+      <img src="/images/dashboardLogo.jpg" />
+    </div> -->
+    <div id="layoutSidenav_content">
+      <main>
         <div class="container-fluid px-4">
-            <h1 class="mt-4">Dashboard</h1>
-            <ol class="breadcrumb mb-4">
-                <li class="breadcrumb-item active"><b id="user-name" style="font-size: 20px;">Welcome John Washington</b></li>
-            </ol>
-            <div class="row">
-                <div class="col-xl-3 col-md-6">
-                    <div class="card bg-primary text-white mb-4" style="padding: 20px;">
-                        <div class="card-body">Available Balance</div>
-                        <div id="balance" class="card-body" style="font-size: 24px;">$0</div>
-                    </div>
-                </div>
-                <div>
-                    <button id="transferBtn" class="col-sm-1 btn bg-primary text-white" style="font-size: 18px; padding: 10px 20px;">Transfer</button>
-                </div>
+          <div class="row">
+            <div class="col-6">
+              <h3 class="mt-4"><i class="fas fa-user fa-fw"></i></h3>
             </div>
-            <div class="row">
-                <div class="col-xl-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-area me-1"></i>
+            <div class="col-12" style="font-weight: bold;">Account Number: <span id="accNumber" style="font-weight: normal;"></span></div>
+            <div class="col-12" style="font-weight: bold;">Routing Number: <span id="routingNumber" style="font-weight: normal;"></span></div>
+            <div class="col-12" style="font-weight: bold;">Account Status: <span id="accountStatus" style="font-weight: normal;"></span></div>
+        
+          </div>
+
+          <ol class="breadcrumb mb-4 justify-content-center">
+            <li class="breadcrumb-item active">
+              <b id="user-name">Hi, USER</b>
+            </li>
+          </ol>
+          <div>
+          <!-- <div class="imageContainer">
+            <img class="image" src="./images/dashboardLogo.jpg" />
+          </div> -->
+          <div id="profile-card" class="container-fluid">
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <div class="card-body">PERSONAL SAVINGS</div>
+                  <div class="row p-2">
+                    <div class="col-6">
+                      <div
+                        id="balance"
+                        class="card-body"
+                        style="font-size: 24px"
+                      >
+                        <span class="balance">
+                          <sup class="dollar">$</sup
+                          ><span id="main-balance">0</span></span
+                        >
+                        <p class="available-balance">AVAILABLE BALANCE</p>
+                        <span class="small-balance">
+                          <sup class="small-dollar">$</sup
+                          ><span id="sub-balance">0</span></span
+                        >
+                        <p class="current-balance">CURRENT BALANCE</p>
+                        <button id="flipCardBtn" class="btn btn-primary">
+                          SHOW ATM
+                        </button>
+                      </div>
+                    </div>
+                    <div id="piggy-container" class="col-6">
+                      <img class="piggy-bank" src="./images/piggy-bank.png" />
+                    </div>
+                  </div>
+                </div>
+                <div class="flip-card-back">
+                  <div class="row p-3">
+                    <div class="col-6">
+                      <div class="col-12 w-100 mt-5">
+                        <div>
+                          <img src="./images/chip.png" style="width: 50px" />
                         </div>
+                        <div id="number">1234567891011123</div>
+                      </div>
+                      <div class="row">
+                        <div class="col-2 w-50">
+                          <div>CVV</div>
+                          <div id="cvv">222</div>
+                        </div>
+                        <div class="col-2">
+                          <div>EXP</div>
+                          <div id="expiry">01/25</div>
+                        </div>
+
+                        <p id="full-name" class="mt-3">JOHN DOE</p>
+                        <p id="cardType" class="mt-0">VISA</p>
+                      </div>
                     </div>
+                    <div
+                      class="col-6 mb-2 d-flex align-items-end justify-content-end"
+                    >
+                      <button id="flipCardBtn2" class="btn btn-primary">
+                        HIDE CARD
+                      </button>
+                    </div>
+                  </div>
                 </div>
+              </div>
+              <div class="row">
+                <div class="col-6">
+                  <a
+                    class="btn btn-primary"
+                    id="transferBtn"
+                    href="/transfer.html"
+                    target="_blank"
+                    >WIRE TRANSFER</a
+                  >
+                </div>
+                <div class="col-6">
+                  <a
+                    class="btn btn-primary"
+                    id="depositBtn"
+                    href="/deposit.html"
+                    target="_blank"
+                    >DIRECT DEPOSIT</a
+                  >
+                </div>
+                <div class="col-sm-6"></div>
+              </div>
             </div>
-        </div>
-    </main>
+          </div>
 
-    
-<!-- TradingView Widget BEGIN -->
-<div class="tradingview-widget-container">
-    <div class="tradingview-widget-container__widget"></div>
-    <div class="tradingview-widget-copyright"><a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank"><span class="blue-text">Track all markets on TradingView</span></a></div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-    {
-    "symbol": "FX:EURUSD",
-    "width": "100%",
-    "height": "100%",
-    "locale": "en",
-    "dateRange": "12M",
-    "colorTheme": "light",
-    "isTransparent": false,
-    "autosize": true,
-    "largeChartUrl": ""
-  }
-    </script>
-  </div>
-  <!-- TradingView Widget END -->
-    <footer class="py-4 bg-light mt-auto">
+          <!-- Last Transactions Section -->
+          <div class="last-transactions">
+            <h2>Last Transactions</h2>
+          </div>
+        </div>
+      </main>
+
+      <footer class="footer">
         <div class="container-fluid px-4">
-            <a href="mailto:republicbank405@gmail.com">
-                <button id="" class="col-sm-1 btn" style="background-color: #212529; color: #ffffff;">Message The Support Team</button>
-              </a>
-              
-              
-            <div class="d-flex align-items-center justify-content-between small">
-                <div class="text-muted">Copyright &copy; Republic Central Bank</div>
-                <div>
-                    <a href="#" style="text-decoration: none; color: #212529;">Privacy Policy</a>
-                    &middot;
-                    <a href="#" style="text-decoration: none; color: #212529;">Terms &amp; Conditions</a>
-                </div>
+          <a href="mailto:republicbank405@gmail.com">
+            <button class="btn btn-dark">Message The Support Team</button>
+          </a>
+          <div class="d-flex align-items-center justify-content-between small">
+            <div class="text-muted">Copyright &copy; Republic Bank</div>
+            <div>
+              <a href="#">Privacy Policy</a>
+              &middot;
+              <a href="#">Terms &amp; Conditions</a>
             </div>
+          </div>
         </div>
-    </footer>
-</div>
+      </footer>
+    </div>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-<script src="js/scripts.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-<script src="assets/demo/chart-area-demo.js"></script>
-<script src="assets/demo/chart-bar-demo.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-<script src="js/datatables-simple-demo.js"></script>
-<div class="row gx-4 gx-lg-5 justify-content-center">
-</div>
-</div>
-<script type="module" src="/js/dashboard.js"></script>
-</body>
+    <!-- Bootstrap Bundle JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Your Custom Scripts -->
+    <script src="js/scripts.js"></script>
+    <!-- Chart.js -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="assets/demo/chart-area-demo.js"></script>
+    <script src="assets/demo/chart-bar-demo.js"></script>
+    <!-- Simple DataTables -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/datatables-simple-demo.js"></script>
+    <!-- TradingView Widget -->
+    <!-- <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js"
+        async>
+        {
+            "symbol": "FX:EURUSD",
+            "width": "100%",
+            "height": "100%",
+            "locale": "en",
+            "dateRange": "12M",
+            "colorTheme": "light",
+            "isTransparent": false,
+            "autosize": true,
+            "largeChartUrl": ""
+        }
+    </ -->
+    <script>
+      window.embeddedChatbotConfig = {
+        chatbotId: "RFRWWG3T9M9Uph7c0syW5",
+        domain: "www.chatbase.co",
+      };
+    </script>
+    <script
+      src="https://www.chatbase.co/embed.min.js"
+      chatbotId="RFRWWG3T9M9Uph7c0syW5"
+      domain="www.chatbase.co"
+      defer
+    ></script>
+  </body>
 </html>

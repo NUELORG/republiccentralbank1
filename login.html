@@ -1,71 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+
+<html>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Republic Central Bank - Login</title>
-    <style>
-      body {
-        font-family: Arial, sans-serif;
-        background-color: #222;
-        color: #fff;
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      .container {
-        max-width: 400px;
-        margin: 100px auto;
-        background-color: #333;
-        padding: 20px;
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
-      }
-      h1 {
-        text-align: center;
-        color: #fff;
-      }
-      label {
-        display: block;
-        margin-bottom: 5px;
-        color: #ccc;
-      }
-      input[type="text"],
-      input[type="password"] {
-        width: 100%;
-        padding: 8px;
-        margin-bottom: 15px;
-        border: 1px solid #555;
-        border-radius: 4px;
-        box-sizing: border-box;
-        background-color: #444;
-        color: #fff;
-      }
-      button {
-        background-color: #4caf50;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 4px;
-        cursor: pointer;
-        width: 100%;
-      }
-      button:hover {
-        background-color: #45a049;
-      }
-    </style>
+    <title>Login</title>
+    <link rel="stylesheet" href="style1.css" />
+    <script type="module" src="/js/login.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "uSTkrdvcPjeIHZq_q",
+        });
+      })();
+    </script>
   </head>
   <body>
-    <div class="container">
-      <h1>REPUBLIC CENTRAL BANK - LOGIN</h1>
-      <form id="loginForm">
-        <label for="username">Email:</label>
-        <input type="text" id="username" name="username" required />
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required />
-        <button type="submit">Login</button>
+    <div class="header">
+      <a style="text-decoration: none" href="index.html">
+        <h1 style="color: white; font-size: 40px">Republic Bank</h1>
+      </a>
+    </div>
+    <div class="login-wrapper">
+      <form action="#" id="loginForm">
+        <h3 class="">Login</h3>
+        <hr style="margin-bottom: 20px" />
+        <div class="input-field">
+          <label>Email</label>
+          <input id="username" type="text" required />
+        </div>
+        <div class="input-field">
+          <label>Password</label>
+          <input id="password" type="password" required />
+        </div>
+        <div class="forget">
+          <label for="remember">
+            <input type="checkbox" id="remember" />
+            <p>Remember me</p>
+          </label>
+        </div>
+        <div class="">
+          <a style="color: black" href="/ForgetPassword.html"
+            >Forgot password?</a
+          >
+        </div>
+
+        <button type="submit">Log In</button>
+
+        <div class="register">
+          <p>Don't have an account? <a href="./signup.html">Register</a></p>
+        </div>
       </form>
     </div>
-    <script type="module" src="/js/login.js"></script>
+    <script>
+      window.embeddedChatbotConfig = {
+        chatbotId: "RFRWWG3T9M9Uph7c0syW5",
+        domain: "www.chatbase.co",
+      };
+    </script>
+    <script
+      src="https://www.chatbase.co/embed.min.js"
+      chatbotId="RFRWWG3T9M9Uph7c0syW5"
+      domain="www.chatbase.co"
+      defer
+    ></script>
   </body>
 </html>
