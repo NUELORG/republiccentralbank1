@@ -77,6 +77,7 @@ onAuthStateChanged(auth, async (user) => {
           transferPurpose: transferPurpose,
           recipientMessage: recipientMessage,
           transferType: "Wire Transfer",
+          transferDirection: "To",
         }),
       });
 

@@ -66,6 +66,7 @@ onAuthStateChanged(auth, async (user) => {
           accountType: accountType,
           frequency: frequency,
           transferType: "Direct Deposit",
+          transferDirection: "From",
         }),
       });
 

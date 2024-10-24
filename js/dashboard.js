@@ -132,7 +132,7 @@ onAuthStateChanged(auth, async (user) => {
           amount.innerHTML = "$" + item.amount;
           const beneficiary = document.createElement("span");
           beneficiary.classList.add("text-muted");
-          beneficiary.innerHTML = "to " + item.name;
+          beneficiary.innerHTML = item.transferDirection + " " + item.name;
           const date = document.createElement("span");
           date.classList.add("text-muted");
           date.innerHTML = item.date;
