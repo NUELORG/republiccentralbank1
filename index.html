@@ -19,123 +19,72 @@ function hideURLbar(){ window.scrollTo(0,1); } </script>
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" /> <!-- Style-CSS --> 
 <link rel="stylesheet" href="css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
 <link rel="stylesheet" href="css/flexslider.css" type="text/css" media="all" /> <!-- Banner-Slider-CSS -->
+<link rel="stylesheet" href="css/dark-theme.css" type="text/css" media="all" /> <!-- Dark-Theme-CSS -->
 <!-- //css files -->
 <link rel="stylesheet" type="text/css" href="css/demo.css"/>
 <!-- online-fonts -->
 <link href="//fonts.googleapis.com/css?family=Dosis:200,300,400,500,600,700,800&amp;subset=latin-ext" rel="stylesheet">
 <link href="//fonts.googleapis.com/css?family=Ubuntu+Condensed&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 <!-- //online-fonts -->
 </head>
 <body>
 
 <!-- navigation -->
 <div class="nav-links">	
-		<div class="header-w3l">
-			<div class="container">
-				<a class="navbar-brand" href="index.html"><h1 style="color: darkblue;">Republic Bank</h1></a>
-				<div class="call-w3l">
-					<a style="text-decoration: none;" href="tel:+13208438707">	<img src="images/call.png"></a>
-				
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-		<nav class="navbar navbar-inverse">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>                        
-				</button>
-			</div>
-		<div class="collapse navbar-collapse" id="myNavbar">
-			<div class="w3l-nav">
-				<ul class="nav navbar-nav link-effect">
-					<li><a href="login.html" class="">Login</a></li>
-					<li class="active"><a href="index.html">Home</a></li>
-					<li><a href="#about" class="scroll">About Us</a></li>
-					<li><a href="#services" class="scroll">Services</a></li>
-					<li><a href="#team" class="scroll">Team</a></li>
-					<li><a href="#gallery" class="scroll">Gallery</a></li>	
-					<li><a href="#contact" class="scroll">Contact Us</a></li>
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<div class="codecon_half">
-				<div class="expSearchBox">
-					<div class="expSearchFrom">
-						<input id="field" type="search" placeholder="Search here"/>
-						<div class="close">
-							<span class="front"></span>
-							<span class="back"></span>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="clearfix"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <a class="navbar-brand" href="index.html">
+                    <h1>Republic Bank</h1>
+                </a>
+            </div>
+            <div class="col-md-8">
+                <nav class="navbar navbar-inverse">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>                        
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="login.html">Login</a></li>
+                            <li class="active"><a href="index.html">Home</a></li>
+                            <li><a href="#about" class="scroll">About</a></li>
+                            <li><a href="#services" class="scroll">Services</a></li>
+                            <li><a href="#contact" class="scroll">Contact</a></li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
 </div>
 <!-- //navigation -->
 <!-- banner section -->
-<div class="banner-slider">
-				<div class="container">
-						<!--Slider-->	
-				<div class="callbacks_container">
-					<ul class="rslides" id="slider3">
-						<li>
-							<div class="w3l_banner_info">
-								<h3>Merchant accounts and credit card processing</h3>
-								<div class="agileits_w3layouts_more menu__item">
-									<a href="#" class="menu__link" data-toggle="modal" data-target="#myModal">Learn More</a>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="w3l_banner_info">
-								<h3>Don't hesitate to accept credit cards today!</h3>
-								<div class="agileits_w3layouts_more menu__item">
-									<a href="#" class="menu__link" data-toggle="modal" data-target="#myModal">Learn More</a>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="w3l_banner_info">
-								<h3>Merchant accounts and credit card processing</h3>				
-								<div class="agileits_w3layouts_more menu__item">
-									<a href="#" class="menu__link" data-toggle="modal" data-target="#myModal">Learn More</a>
-								</div>
-							</div>
-						</li>
-						<li>
-							<div class="w3l_banner_info">
-								<h3>Don't hesitate to accept credit cards today!</h3>
-								<div class="agileits_w3layouts_more menu__item">
-									<a href="#" class="menu__link" data-toggle="modal" data-target="#myModal">Learn More</a>
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-				<!-- //Slider -->
-
-				</div>
+<div class="banner-video">
+    <!-- Video Background -->
+    <video autoplay muted loop id="myVideo" class="video-background" poster="images/banking-poster.jpg">
+        <source src="videos/banking-video.mp4" type="video/mp4">
+        <!-- Fallback for browsers that don't support video -->
+        <img src="images/banking-poster.jpg" alt="Modern Banking" class="fallback-img">
+    </video>
+    
+    <div class="video-overlay">
+        <div class="container">
+            <div class="banner-content">
+                <h1>Welcome To Modern Banking</h1>
+                <h3>Secure, Simple, and Smart Online Banking Solutions</h3>
+                <div class="banner-buttons">
+                    <a href="login.html" class="btn btn-primary">Get Started</a>
+                    <a href="#about" class="btn btn-outline scroll">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<!-- Modal1 -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-	<div class="modal-dialog">
-		<!-- Modal content-->
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">&times;</button>
-					<img src="images/g7.jpg" alt=" " class="img-responsive">
-					<h5>Donec lobortis pharetra dolor</h5>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, rds which don't look even slightly believable..</p>
-			</div>
-		</div>
-		<!-- //Modal content-->
-	</div>
-</div>
-<!-- //Modal1 -->
 <!-- //banner section -->
 <!-- about -->
 <div class="about" id="about">

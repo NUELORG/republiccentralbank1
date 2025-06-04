@@ -1,0 +1,452 @@
+/* Dark Theme Styles */
+body {
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+/* Text visibility improvements */
+p, h1, h2, h3, h4, h5, h6, span, div {
+    color: #e0e0e0;
+}
+
+/* Navigation Styles */
+.nav-links {
+    background-color: transparent;
+    position: absolute;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header-w3l {
+    background-color: transparent;
+    padding: 20px 0;
+}
+
+.navbar-inverse {
+    background-color: transparent;
+    border: none;
+    margin-bottom: 0;
+    min-height: 40px;
+}
+
+.navbar-brand {
+    padding: 10px 15px;
+    height: auto;
+}
+
+.navbar-brand h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    color: #4a90e2;
+    animation: slideText 15s linear infinite;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: #ffffff;
+    transition: all 0.3s ease;
+    padding: 10px 15px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+    color: #4a90e2;
+    background-color: transparent;
+    transform: translateY(-2px);
+}
+
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+    color: #4a90e2;
+    background-color: transparent;
+}
+
+.navbar-toggle {
+    padding: 8px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: #4a90e2;
+}
+
+/* Logo animation */
+@keyframes slideText {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    45% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-20px);
+        opacity: 0;
+    }
+    55% {
+        transform: translateX(20px);
+        opacity: 0;
+    }
+    60% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Call icon styling */
+.call-w3l {
+    padding: 10px 0;
+}
+
+.call-w3l img {
+    height: 24px;
+    width: auto;
+    transition: transform 0.3s ease;
+}
+
+.call-w3l img:hover {
+    transform: scale(1.1);
+}
+
+/* Banner Styles */
+.w3l_banner_info {
+    background-color: rgba(45, 45, 45, 0.8);
+    animation: fadeIn 1s ease-in;
+}
+
+.w3l_banner_info h3 {
+    color: #ffffff;
+    animation: slideInLeft 1s ease-out;
+}
+
+/* Section Styles */
+.about, .services, .testimonials, .mail {
+    background-color: #1a1a1a;
+}
+
+.w3l-title {
+    color: #e0e0e0;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.w3l-title span {
+    color: #4a90e2;
+    animation: glow 2s infinite;
+}
+
+/* Services Section */
+.wthree-services-grid {
+    background-color: #2d2d2d;
+    border: 1px solid #3d3d3d;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.wthree-services-grid:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+}
+
+.wthree-services-info h5 {
+    color: #4a90e2;
+}
+
+.wthree-services-info p {
+    color: #b0b0b0;
+}
+
+/* Testimonials */
+.agileinfo_testimonials_right_grid p {
+    color: #b0b0b0;
+    background-color: #2d2d2d;
+}
+
+.agileinfo_testimonials_right_grid {
+    transition: transform 0.3s ease;
+}
+
+.agileinfo_testimonials_right_grid:hover {
+    transform: scale(1.02);
+}
+
+/* Footer */
+.footer-bot {
+    background-color: #2d2d2d;
+}
+
+.copy-right {
+    background-color: #1a1a1a;
+}
+
+/* Modal */
+.modal-content {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+}
+
+/* Form Elements */
+input[type="text"], input[type="email"], textarea {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    border: 1px solid #3d3d3d;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+input[type="submit"] {
+    background-color: #4a90e2;
+    color: #ffffff;
+    transition: all 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #357abd;
+    transform: translateY(-2px);
+}
+
+/* Stats Section */
+.stats {
+    background-color: rgba(26, 26, 26, 0.9);
+}
+
+.numscroller {
+    color: #4a90e2;
+    animation: glow 2s infinite;
+}
+
+.stats-info h4 {
+    color: #e0e0e0;
+}
+
+/* Contact Section */
+.contact-text-agileinf0 h4 {
+    color: #4a90e2;
+}
+
+.contact-text-agileinf0 p {
+    color: #e0e0e0;
+}
+
+/* Social Icons */
+.agileits_social_list li a {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.agileits_social_list li a:hover {
+    background-color: #4a90e2;
+    transform: translateY(-3px);
+}
+
+/* Links */
+a {
+    color: #4a90e2;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: #6aa9e9;
+    text-decoration: none;
+}
+
+/* Search Box */
+.expSearchBox input {
+    background-color: #2d2d2d;
+    color: #e0e0e0;
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px rgba(74, 144, 226, 0.5); }
+    50% { text-shadow: 0 0 20px rgba(74, 144, 226, 0.8); }
+    100% { text-shadow: 0 0 5px rgba(74, 144, 226, 0.5); }
+}
+
+/* Additional Improvements */
+.wthree-slid {
+    background-color: #2d2d2d;
+}
+
+/* Make sure all paragraphs are visible */
+.sub-p3, .sub {
+    color: #e0e0e0 !important;
+}
+
+/* Ensure good contrast for all text elements */
+.wthree_testimonial_grid_left h4,
+.agileinfo_testimonials_left h4,
+.wthree-services-info p,
+.contact-text-agileinf0 p,
+.mail p,
+.about p {
+    color: #e0e0e0 !important;
+}
+
+/* Add hover effect to service icons */
+.wthree-services-icon i {
+    color: #4a90e2;
+    transition: transform 0.3s ease;
+}
+
+.wthree-services-grid:hover .wthree-services-icon i {
+    transform: scale(1.2);
+}
+
+/* Video Banner Styles */
+.banner-video {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    overflow: hidden;
+    background-color: #1a1a1a;
+}
+
+.video-background {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 0;
+    object-fit: cover;
+}
+
+.fallback-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(26, 26, 26, 0.7);
+    z-index: 1;
+    display: flex;
+    align-items: center;
+}
+
+.banner-content {
+    text-align: center;
+    color: #ffffff;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.banner-content h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    animation: fadeInDown 1s ease-out;
+}
+
+.banner-content h3 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    color: #e0e0e0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    animation: fadeInUp 1s ease-out 0.3s;
+}
+
+.banner-buttons {
+    margin-top: 30px;
+    animation: fadeIn 1s ease-out 0.6s;
+}
+
+.banner-buttons .btn {
+    margin: 10px;
+    padding: 12px 30px;
+    font-size: 1.2em;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: #4a90e2;
+    border: none;
+    color: white;
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background-color: #357abd;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+}
+
+.btn-outline:hover {
+    background-color: #ffffff;
+    color: #2d2d2d;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} 
