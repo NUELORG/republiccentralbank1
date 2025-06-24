@@ -22,7 +22,7 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
       rel="stylesheet"
-    >
+    />
     <!-- Font Awesome -->
     <script
       src="https://use.fontawesome.com/releases/v6.3.0/js/all.js"
@@ -52,7 +52,7 @@
       }
 
       body {
-        font-family: 'Inter', sans-serif;
+        font-family: "Inter", sans-serif;
         background-color: var(--background-color);
         color: var(--text-primary);
       }
@@ -110,17 +110,16 @@
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: 1rem;
-        margin-top: 2rem;
       }
 
       .action-button {
-        padding: 1rem;
         border-radius: 12px;
         border: none;
         background: var(--primary-color);
         color: white;
         font-weight: 500;
         transition: all 0.3s ease;
+        text-decoration: none;
       }
 
       .action-button:hover {
@@ -139,8 +138,7 @@
       .transactions-card {
         background: var(--card-background);
         border-radius: 16px;
-        padding: 1.5rem;
-        margin-top: 2rem;
+        margin-top: 120px;
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
       }
 
@@ -225,14 +223,285 @@
           grid-template-columns: repeat(2, 1fr);
         }
       }
+      .card {
+        margin-bottom: 20px;
+        border: none;
+      }
+
+      .card-body {
+        padding: 15px;
+      }
+
+      .card-header {
+        background-color: #ffffff;
+        border-bottom: 1px solid #dee2e6;
+      }
+
+      .breadcrumb-item {
+        font-size: 20px;
+      }
+
+      .breadcrumb-item.active {
+        font-weight: bold;
+      }
+
+      .btn {
+        padding: 15px 25px;
+        margin-bottom: 10px;
+      }
+
+      .footer {
+        background-color: #f8f9fa;
+        padding: 20px;
+        margin-top: 20px;
+        text-align: center;
+      }
+
+      .footer a {
+        color: #212529;
+        text-decoration: none;
+      }
+
+      .small {
+        font-size: 12px;
+      }
+
+      .last-transactions {
+        background-color: #ffffff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-top: 100px;
+      }
+
+      .last-transactions h2 {
+        margin-bottom: 20px;
+      }
+
+      .transaction-item {
+        margin-bottom: 10px;
+      }
+
+      .transaction-item span {
+        font-weight: bold;
+        margin-right: 10px;
+      }
+
+      .transaction-item .text-muted {
+        font-size: 12px;
+      }
+
+      /* .image {
+        width: 100%;
+        height: 300px;
+      } */
+      #profile-card {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 300px;
+        /* position: relative;
+        bottom: 100px; */
+      }
+      /* CARD */
+      .flip-card {
+        background-color: transparent;
+        width: 500px;
+        margin-bottom: 20px;
+        perspective: 1000px;
+        /* Remove this if you don't want the 3D effect */
+      }
+
+      /* This container is needed to position the front and back side */
+      .flip-card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        transition: transform 0.8s;
+        transform-style: preserve-3d;
+      }
+
+      /* Do an horizontal flip when you move the mouse over the flip box container */
+      /* .flip-card:hover .flip-card-inner {
+        transform: rotateY(180deg);
+      } */
+
+      /* Position the front and back side */
+      .flip-card-front,
+      .flip-card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        -webkit-backface-visibility: hidden; /* Safari */
+        backface-visibility: hidden;
+        border-radius: 20px;
+        box-shadow: 1px 1px 1px 1px rgb(82, 82, 82);
+      }
+
+      /* Style the front side (fallback if image is missing) */
+      .flip-card-front {
+        background-color: dodgerblue;
+        color: rgb(71, 71, 71);
+        background-color: rgb(232, 231, 231);
+      }
+      .flip-card-back {
+        background-color: dodgerblue;
+        color: white;
+        background-color: rgb(38, 38, 38);
+        transform: rotateY(180deg);
+      }
+      #number {
+        font-size: 24px;
+        letter-spacing: 10px;
+      }
+
+      /* Style the back side */
+
+      .header {
+        width: 100%;
+      }
+      .header img {
+        width: 100%;
+        max-height: 300px;
+        height: auto;
+      }
+      .balance {
+        font-size: 30px;
+        font-weight: bold;
+        color: black;
+      }
+      .dollar {
+        font-size: 20px;
+      }
+      #balance {
+        padding: 2px;
+      }
+      .available-balance {
+        font-size: 16px;
+        margin-bottom: 0;
+        color: rgb(97, 97, 97);
+      }
+      .small-dollar {
+        font-size: 14px;
+      }
+      .small-balance {
+        font-size: 18px;
+        color: black;
+      }
+      .current-balance {
+        font-size: 15px;
+        color: rgb(97, 97, 97);
+      }
+      #piggy-container {
+        position: relative;
+        bottom: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .piggy-bank {
+        max-width: 200px;
+        min-width: 200px;
+        height: 200px;
+      }
+      #flipCardBtn:hover {
+        background-color: rgb(68, 68, 68);
+      }
+      #flipCardBtn2:hover {
+        background-color: rgb(224, 211, 211);
+      }
+      #flipCardBtn,
+      #atmBtn {
+        background-color: #212529;
+        border: none;
+      }
+
+      #flipCardBtn2 {
+        background-color: white;
+        color: black;
+        border: none;
+      }
+      #full-name,
+      #user-name,
+      #cardType {
+        text-transform: uppercase;
+      }
+      #user-name {
+        color: rgb(0, 0, 0);
+        font-family: sans-serif;
+        font-weight: 300;
+      }
+
+      #transferBtn {
+        background-color: green;
+        border: none;
+        margin-top: 20px;
+        color: white;
+        text-decoration: none;
+        display: block;
+      }
+      #depositBtn {
+        background-color: orange;
+        border: none;
+        margin-top: 20px;
+        color: white;
+        text-decoration: none;
+        display: block;
+      }
+
+      #transferBtn:hover {
+        background-color: rgb(20, 91, 20);
+      }
+      #depositBtn:hover {
+        background-color: rgb(198, 137, 24);
+      }
+
+      @media only screen and (max-width: 481px) {
+        .piggy-bank {
+          max-width: 140px;
+          min-width: 140px;
+          height: 140px;
+          width: auto;
+          height: auto;
+        }
+        .dollar {
+          font-size: 14px;
+        }
+        .balance {
+          font-size: 20px;
+        }
+        .small-balance {
+          font-size: 15px;
+        }
+        .available-balance {
+          font-size: 14px;
+        }
+        .current-balance {
+          font-size: 12px;
+        }
+        #flipCardBtn,
+        #atmBtn,
+        #flipCardBtn2 {
+          font-size: 12px;
+        }
+        #profile-card {
+          display: flex;
+          justify-content: center;
+          width: 100%;
+          height: 300px;
+          /* position: relative;
+        bottom: 100px; */
+        }
+        #number {
+          letter-spacing: normal;
+        }
+      }
     </style>
   </head>
 
   <body class="sb-nav-fixed">
-    <nav
-      class="navbar navbar-expand-lg dashboard-header"
-      style="padding: 10px"
-    >
+    <nav class="navbar navbar-expand-lg dashboard-header" style="padding: 10px">
       <div class="container">
         <a class="navbar-brand" href="index.html">Republic Bank</a>
         <button
@@ -259,7 +528,11 @@
                 aria-label="Search for..."
                 aria-describedby="btnNavbarSearch"
               />
-              <button class="btn btn-primary" id="btnNavbarSearch" type="button">
+              <button
+                class="btn btn-primary"
+                id="btnNavbarSearch"
+                type="button"
+              >
                 <i class="fas fa-search"></i>
               </button>
             </div>
@@ -280,7 +553,9 @@
                 aria-labelledby="navbarDropdown"
               >
                 <li><a class="dropdown-item" href="#!">Settings</a></li>
-                <li><a class="dropdown-item" href="profile.html">Profile</a></li>
+                <li>
+                  <a class="dropdown-item" href="profile.html">Profile</a>
+                </li>
                 <li><hr class="dropdown-divider" /></li>
                 <li>
                   <a class="dropdown-item" id="logout" href="index.html"
@@ -288,7 +563,9 @@
                   >
                 </li>
                 <li>
-                  <a class="dropdown-item" id="logout" href="admin.html">Admin</a>
+                  <a class="dropdown-item" id="logout" href="admin.html"
+                    >Admin</a
+                  >
                 </li>
               </ul>
             </li>
@@ -303,10 +580,18 @@
             <div class="col-6">
               <h3 class="mt-4"><i class="fas fa-user fa-fw"></i></h3>
             </div>
-            <div class="col-12" style="font-weight: bold;">Account Number: <span id="accNumber" style="font-weight: normal;"></span></div>
-            <div class="col-12" style="font-weight: bold;">Routing Number: <span id="routingNumber" style="font-weight: normal;"></span></div>
-            <div class="col-12" style="font-weight: bold;">Account Status: <span id="accountStatus" style="font-weight: normal;"></span></div>
-        
+            <div class="col-12" style="font-weight: bold">
+              Account Number:
+              <span id="accNumber" style="font-weight: normal"></span>
+            </div>
+            <div class="col-12" style="font-weight: bold">
+              Routing Number:
+              <span id="routingNumber" style="font-weight: normal"></span>
+            </div>
+            <div class="col-12" style="font-weight: bold">
+              Account Status:
+              <span id="accountStatus" style="font-weight: normal"></span>
+            </div>
           </div>
 
           <ol class="breadcrumb mb-4 justify-content-center">
@@ -315,35 +600,101 @@
             </li>
           </ol>
           <div>
-          <div id="profile-card" class="container-fluid">
-            <div class="account-card">
-              <div class="balance-section">
-                <div class="balance-label">Available Balance</div>
-                <div class="balance-amount">
-                  $<span id="main-balance">0.00</span>
+            <div id="profile-card" class="container-fluid">
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <div class="card-body">PERSONAL SAVINGS</div>
+                    <div class="row p-2">
+                      <div class="col-6">
+                        <div
+                          id="balance"
+                          class="card-body"
+                          style="font-size: 24px"
+                        >
+                          <span class="balance">
+                            <sup class="dollar">$</sup
+                            ><span id="main-balance">0</span></span
+                          >
+                          <p class="available-balance">AVAILABLE BALANCE</p>
+                          <span class="small-balance">
+                            <sup class="small-dollar">$</sup
+                            ><span id="sub-balance">0</span></span
+                          >
+                          <p class="current-balance">CURRENT BALANCE</p>
+                          <button id="flipCardBtn" class="btn btn-primary">
+                            SHOW ATM
+                          </button>
+                        </div>
+                      </div>
+                      <div id="piggy-container" class="col-6">
+                        <img class="piggy-bank" src="./images/piggy-bank.png" />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flip-card-back">
+                    <div class="row p-3">
+                      <div class="col-6">
+                        <div class="col-12 w-100 mt-5">
+                          <div>
+                            <img src="./images/chip.png" style="width: 50px" />
+                          </div>
+                          <div id="number">1234567891011123</div>
+                        </div>
+                        <div class="row">
+                          <div class="col-2 w-50">
+                            <div>CVV</div>
+                            <div id="cvv">222</div>
+                          </div>
+                          <div class="col-2">
+                            <div>EXP</div>
+                            <div id="expiry">01/25</div>
+                          </div>
+
+                          <p id="full-name" class="mt-3">JOHN DOE</p>
+                          <p id="cardType" class="mt-0">VISA</p>
+                        </div>
+                      </div>
+                      <div
+                        class="col-6 mb-2 d-flex align-items-end justify-content-end"
+                      >
+                        <button id="flipCardBtn2" class="btn btn-primary">
+                          HIDE CARD
+                        </button>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <div class="balance-label mt-3">Current Balance</div>
-                <div class="h4">
-                  $<span id="sub-balance">0.00</span>
-                </div>
-                
-                <div class="quick-actions">
-                  <a href="/transfer.html" class="action-button transfer">
-                    <i class="fas fa-exchange-alt me-2"></i>Wire Transfer
-                  </a>
-                  <a href="/deposit.html" class="action-button deposit">
-                    <i class="fas fa-money-bill-wave me-2"></i>Direct Deposit
-                  </a>
+                <div class="row my-5">
+                  <div class="col-6 justify-content-center d-flex">
+                    <a
+                      href="/transfer.html"
+                      class="btn btn-primary action-button transfer"
+                    >
+                      <i class="fas fa-exchange-alt me-2"></i>Wire Transfer
+                    </a>
+                  </div>
+
+                  <div class="col-6 justify-content-center d-flex">
+                    <a
+                      href="/deposit.html"
+                      class="btn btn-primary action-button deposit"
+                    >
+                      <i class="fas fa-money-bill-wave me-2"></i>Direct Deposit
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Last Transactions Section -->
-          <div class="transactions-card mt-4">
-            <h5 class="mb-4">Recent Transactions</h5>
+          <div class="transactions-card">
             <div class="transaction-list">
               <!-- Transaction items will be dynamically added here -->
+              <div class="last-transactions">
+                <h2>Recent Transactions</h2>
+              </div>
             </div>
           </div>
         </div>

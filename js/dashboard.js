@@ -102,6 +102,7 @@ onAuthStateChanged(auth, async (user) => {
       });
       cardBtn2.addEventListener("click", (e) => {
         e.preventDefault();
+        console.log("should flip");
 
         console.log(bool);
         if (bool == true) {
@@ -159,6 +160,7 @@ onAuthStateChanged(auth, async (user) => {
   const atmBtn = document.querySelector("#atmBtn");
   atmBtn.addEventListener("click", async (e) => {
     e.preventDefault();
+    console.log("clicked");
     const db = getFirestore(app);
     const docRef = doc(db, "Users", user.email);
     const docSnap = await getDoc(docRef);
